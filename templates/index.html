@@ -1,0 +1,150 @@
+{% extends 'partials/base.html' %} 
+{% load static %} 
+
+{% block contentcountry %}
+
+<div id="country__close" style="width: 50px;">
+  <a href="#" style="margin-left: 10px;width: 100%;height: 200px;">
+    <i class="fa-solid fa-angles-right fa-2x" style="color: aliceblue"></i>
+  </a>
+</div>
+
+<div class="container__aside__country">
+  <div style="margin: 50px 50px 0 20px">
+    <h1 id="pais_titulo"></h1>
+    <p>Visualización de estadísticas por país</p>
+    
+    <div class="kpi">
+      <ul style="margin-bottom: 5px">
+        <li class="title__kpi">Huella de Carbono</li>
+        <div style="display:flex">
+          <li class="number__kpi" id="huellac_pais"></li>
+          <p style="font-size: 12px; margin-left: 5px;">hg/persona</p>
+        </div>
+      </ul>
+      <ul style="margin-bottom: 5px">
+        <li class="title__kpi">Huella ecológica</li>
+        <div style="display:flex">
+          <li class="number__kpi" id="huellae_pais"></li>
+          <p style="font-size: 12px; margin-left: 5px;">hg/persona</p>
+        </div>
+      </ul>
+      <ul style="margin-bottom: 5px">
+        <li class="title__kpi">Biocapacidad</li>
+        <div style="display:flex">
+          <li class="number__kpi" id="bio_pais"></li>
+          <p style="font-size: 12px; margin-left: 5px;">hg/persona</p>
+        </div>
+      </ul>
+      <ul style="margin-bottom: 5px">
+        <li class="title__kpi">Tierra</li>
+        <div style="display:flex">
+          <li class="number__kpi" id="tierra_pais"></li>
+          <p style="font-size: 12px; margin-left: 5px;">planetas Tierra</p>
+        </div>
+      </ul>
+    </div>
+
+    <hr />
+    <!-- <h2 class="loading">Esperando respuesta de la API...</h2> -->
+    <section class="container__aside__chart">
+      <figure>
+        <p>por tipo de energía</p>
+        <h3>Producción Eléctrica</h3>
+        <canvas id="chart5"></canvas>
+      </figure>
+    </section>
+    <section class="container__aside__chart">
+      <figure>
+        <p>por tipo de energía</p>
+        <h3>Consumo Eléctrico</h3>
+        <canvas id="chart6"></canvas>
+      </figure>
+    </section>
+  </div>
+</div>
+{% endblock contentcountry %}
+
+
+{% block contentworld %}
+<div id="click__right__close" style="width: 50px;">
+  <a href="#" style="margin-left: 10px;width: 100%;height: 200px;"
+    ><i
+      class="fa-solid fa-angles-right fa-2x"
+      style="color: aliceblue"
+    ></i
+  ></a>
+</div>
+<div class="container__aside">
+  <div style="margin: 50px 50px 0 20px">
+    <h1>Comparativa Global:</h1>
+    <p>Visualización de estadísticas globales</p>
+    <div class="kpi">
+      <ul style="margin-bottom: 5px">
+        <li class="title__kpi">Biocapacidad Percápita</li>
+        <div style="display:flex">
+          <li class="number__kpi" id="biocapacidad"></li>
+          <p style="font-size: 12px; margin-left: 5px;">hg/persona</p>
+        </div>
+      </ul>
+      <ul style="margin-bottom: 5px">
+        <li class="title__kpi">Huella ecológica global</li>
+        <div style="display:flex">
+          <li class="number__kpi" id="huella"></li>
+          <p style="font-size: 12px; margin-left: 5px;">hg/persona</p>
+        </div>
+      </ul>
+      <ul style="margin-bottom: 5px">
+        <li class="title__kpi">Tierra</li>
+        <div style="display:flex">
+          <li class="number__kpi" id="tierra"></li>
+          <p style="font-size: 12px; margin-left: 5px;">planetas Tierra</p>
+        </div>
+      </ul>
+    </div>
+    <hr class="linehr" />
+    <hr />
+    <!-- <h2 class="loading">Esperando respuesta de la API...</h2> -->
+
+  
+    <section class="container__aside__chart">
+      <figure>
+        <h3>Predicción al 2029</h3>
+        <canvas id="chart7"></canvas>
+      </figure>
+    </section>
+      <section class="cols-2">
+
+        <figure>
+          <h3>Top 10 paises con mas emisiones</h3>
+            <canvas id="chart2"></canvas>
+        </figure>
+
+        <figure>
+          <h3>Emisiones por continente</h3>
+            <canvas id="chart1"></canvas>
+        </figure>
+
+    </section>
+
+
+
+    <section class="carrousel">
+      <div class="bodycarrousel">
+        <figure>
+          <h3>Variación de la Temperatura</h3>
+          <canvas id="chart3"></canvas>
+        </figure>
+        <figure>
+          <h3>Huella ecológica vs Biocapacidad</h3>
+          <canvas id="chart4"></canvas>
+        </figure>
+      </div>
+      <ul class="points">
+        <li class="punto activo"></li>
+        <li class="punto"></li>
+      </ul>
+    </section>
+  </div>
+</div>
+{% endblock contentworld %} 

@@ -1,0 +1,136 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  {% include 'css.html' %}
+</head>
+
+<body>
+  <header>    
+    <div class="title">
+      <img src="static/img/logo_imagen.png" alt="">
+      <img src="static/img/logo_letra.png" alt="">
+    </div>
+    <nav class="stroke">
+      <ul>
+        <li id="team__submenu"><a href="#">Team</a></li>
+        <li><a href="https://eroslibidus-streamdic-streamlit-app-lja7zf.streamlitapp.com/" target="_blank">Consultas SQL</a></li>
+        <li><a href="http://127.0.0.1:8000/api" target="_blank">API Doc</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="main__container" >
+      <div id="map"></div>
+    </div>
+    <div id="click__right__open">WORLD</div>
+    <div class="right__country" >
+      <div class="aside__right__main">
+        {% block contentcountry %}{% endblock contentcountry%}
+      </div>
+    </div>
+    <div class="aside__right">
+      <div class="aside__right__main">
+            {% block contentworld %}{% endblock contentworld %}
+      </div>
+    </div>
+    
+    <div class="aside">
+      <div class="timeline">
+        <div class="linetop"></div>
+        <div id="items__timeline">
+            <button class="timeline__buttons" style="background-color: transparent; border: transparent" value="2000">2000</button>
+            <button class="timeline__buttons" style="background-color: transparent; border: transparent" value="2001">2001</button>
+            <button class="timeline__buttons" style="background-color: transparent; border: transparent" value="2002">2022</button>
+            <button class="timeline__buttons" style="background-color: transparent; border: transparent" value="2003">2003</button>
+            <button class="timeline__buttons" style="background-color: transparent; border: transparent" value="2004">2004</button>
+            <button class="timeline__buttons" style="background-color: transparent; border: transparent" value="2005">2005</button>
+            <button class="timeline__buttons" style="background-color: transparent; border: transparent" value="2006">2006</button>
+            <button class="timeline__buttons" style="background-color: transparent; border: transparent" value="2007">2007</button>
+            <button class="timeline__buttons" style="background-color: transparent; border: transparent" value="2008">2008</button>
+            <button class="timeline__buttons" style="background-color: transparent; border: transparent" value="2009">2009</button>
+            <button class="timeline__buttons" style="background-color: transparent; border: transparent" value="2010">2010</button>
+            <button class="timeline__buttons" style="background-color: transparent; border: transparent" value="2011">2011</button>
+            <button class="timeline__buttons" style="background-color: transparent; border: transparent" value="2012">2012</button>
+            <button class="timeline__buttons" style="background-color: transparent; border: transparent" value="2013">2013</button>
+            <button class="timeline__buttons" style="background-color: transparent; border: transparent" value="2014">2014</button>
+            <button class="timeline__buttons" style="background-color: transparent; border: transparent" value="2015">2015</button>
+            <button class="timeline__buttons" style="background-color: transparent; border: transparent" value="2016">2016</button>
+            <button class="timeline__buttons" style="background-color: transparent; border: transparent" value="2017">2017</button>
+            <button class="timeline__buttons" style="background-color: transparent; border: transparent" value="2018">2018</button>
+            <button class="timeline__buttons" style="background-color: transparent; border: transparent" value="2019">2019</button>
+            <button class="timeline__buttons" style="background-color: transparent; border: transparent" value="2020">2020</button>
+            <button class="timeline__buttons" style="background-color: transparent; border: transparent" value="2021">2021</button>
+            <button class="timeline__buttons" style="background-color: transparent; border: transparent" >2022</button>
+        </div>
+    </div>
+  </div>
+
+     
+    <div class="submenu">
+      <div class="card__submenu">
+        <img width="150px" src="static/img/alex.jpeg" alt="">
+        <h3><a href="https://alexrodriguezvillavicencio.github.io/inicio/" target="_blank">Alex Rodriguez</a></h3>
+        <p style="color: #fff; font-size:12px">Data Engineer | Backend</p>
+        <div class="item__submenu">
+          <a href="https://www.linkedin.com/in/alexrodriguezvillavicencio/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="https://github.com/AlexRodriguezVillavicencio" target="_blank"><i class="fa-brands fa-square-github"></i></a>
+          <a href="#"><i class="fa-brands fa-square-twitter"></i></a>
+        </div>
+      </div>
+      <div class="card__submenu">
+        <img width="150px" src="static/img/cristina.jpg" alt="">
+        <h3><a href="#">Cristina Zamorano</a></h3>
+        <p style="color: #fff; font-size:12px">Data Science</p>
+        <div class="item__submenu">
+          <a href="https://www.linkedin.com/in/cristinazamoranods/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="https://github.com/criszam99" target="_blank"><i class="fa-brands fa-square-github"></i></a>
+          <a href="#"><i class="fa-brands fa-square-twitter"></i></a>
+        </div>
+      </div>
+      <div class="card__submenu">
+        <img width="150px" src="static/img/helton.jpeg" alt="">
+        <h3><a href="#">Helton Lirion</a></h3>
+        <p style="color: #fff; font-size:12px">Data Engineer | Machine Learning</p>
+        <div class="item__submenu">
+          <a href="https://www.linkedin.com/in/jhlirion/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="https://github.com/Jhlirion" target="_blank"><i class="fa-brands fa-square-github"></i></a>
+          <a href="#"><i class="fa-brands fa-square-twitter"></i></a>
+        </div>
+      </div>
+      <div class="card__submenu">
+        <img width="150px" src="static/img/agustin.jpg" alt="">
+        <h3><a href="#">Agustín Montero</a></h3>
+        <p style="color: #fff; font-size:12px">Data Science</p>
+        <div class="item__submenu">
+          <a href="https://www.linkedin.com/in/guillermo-agustin-montero-93910b216/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="https://github.com/agusm95"><i class="fa-brands fa-square-github" target="_blank"></i></a>
+          <a href="#"><i class="fa-brands fa-square-twitter"></i></a>
+        </div>
+      </div>
+      <div class="card__submenu">
+        <img width="150px" src="static/img/geronimo.jpeg" alt="">
+        <h3><a href="#">Geronimo Giggi</a></h3>
+        <p style="color: #fff; font-size:12px">Data Engineer | Cloud</p>
+        <div class="item__submenu">
+          <a href="https://www.linkedin.com/in/geronimo-giggi-hippener-37a397238/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="https://github.com/ErosLibidus" target="_blank"><i class="fa-brands fa-square-github"></i></a>
+          <a href="#"><i class="fa-brands fa-square-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+    <div id="obturador">
+      <img width="100%" height="100%"  src="static/img/fondomovil.jpg" alt="">
+    </div>
+  </main>
+
+  {% include 'js.html' %}
+</body>
+</html>
