@@ -1,0 +1,296 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+  integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+  crossorigin=""/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/map.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/chart.css">
+  <link rel="stylesheet" href="css/styles_movil.css">
+</head>
+
+<body>
+  <header>    
+    <div class="title">
+      <img src="img/logo_imagen.png" alt="">
+      <img src="img/logo_letra.png" alt="">
+    </div>
+    <nav class="stroke">
+      <ul>
+        <li id="team__submenu"><a href="#">Team</a></li>
+        <li><a href="https://eroslibidus-streamdic-streamlit-app-lja7zf.streamlitapp.com/" target="_blank">Consultas SQL</a></li>
+        <li><a href="https://mapa-emisiones-production.up.railway.app/api" target="_blank">API Doc</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="main__container" >
+      <div id="map"></div>
+    </div>
+    <div id="click__right__open">WORLD</div>
+    <div class="right__country" >
+      <div class="aside__right__main">
+        <div id="country__close" style="width: 50px;">
+            <a href="#" style="margin-left: 10px;width: 100%;height: 200px;">
+              <i class="fa-solid fa-angles-right fa-2x" style="color: aliceblue"></i>
+            </a>
+          </div>
+          
+          <div class="container__aside__country">
+            <div style="margin: 50px 50px 0 20px">
+              <h1 id="pais_titulo"></h1>
+              <p>Visualización de estadísticas por país</p>
+              
+              <div class="kpi">
+                <ul style="margin-bottom: 5px">
+                  <li class="title__kpi">Huella de Carbono</li>
+                  <div style="display:flex">
+                    <li class="number__kpi" id="huellac_pais"></li>
+                    <p style="font-size: 12px; margin-left: 5px;">hg/persona</p>
+                  </div>
+                </ul>
+                <ul style="margin-bottom: 5px">
+                  <li class="title__kpi">Huella ecológica</li>
+                  <div style="display:flex">
+                    <li class="number__kpi" id="huellae_pais"></li>
+                    <p style="font-size: 12px; margin-left: 5px;">hg/persona</p>
+                  </div>
+                </ul>
+                <ul style="margin-bottom: 5px">
+                  <li class="title__kpi">Biocapacidad</li>
+                  <div style="display:flex">
+                    <li class="number__kpi" id="bio_pais"></li>
+                    <p style="font-size: 12px; margin-left: 5px;">hg/persona</p>
+                  </div>
+                </ul>
+                <ul style="margin-bottom: 5px">
+                  <li class="title__kpi">Tierra</li>
+                  <div style="display:flex">
+                    <li class="number__kpi" id="tierra_pais"></li>
+                    <p style="font-size: 12px; margin-left: 5px;">planetas Tierra</p>
+                  </div>
+                </ul>
+              </div>
+          
+              <hr />
+              <!-- <h2 class="loading">Esperando respuesta de la API...</h2> -->
+              <section class="container__aside__chart">
+                <figure>
+                  <p>por tipo de energía</p>
+                  <h3>Producción Eléctrica</h3>
+                  <canvas id="chart5"></canvas>
+                </figure>
+              </section>
+              <section class="container__aside__chart">
+                <figure>
+                  <p>por tipo de energía</p>
+                  <h3>Consumo Eléctrico</h3>
+                  <canvas id="chart6"></canvas>
+                </figure>
+              </section>
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="aside__right">
+      <div class="aside__right__main">
+        <div id="click__right__close" style="width: 50px;">
+            <a href="#" style="margin-left: 10px;width: 100%;height: 200px;"
+              ><i
+                class="fa-solid fa-angles-right fa-2x"
+                style="color: aliceblue"
+              ></i
+            ></a>
+          </div>
+          <div class="container__aside">
+            <div style="margin: 50px 50px 0 20px">
+              <h1>Comparativa Global:</h1>
+              <p>Visualización de estadísticas globales</p>
+              <div class="kpi">
+                <ul style="margin-bottom: 5px">
+                  <li class="title__kpi">Biocapacidad Percápita</li>
+                  <div style="display:flex">
+                    <li class="number__kpi" id="biocapacidad"></li>
+                    <p style="font-size: 12px; margin-left: 5px;">hg/persona</p>
+                  </div>
+                </ul>
+                <ul style="margin-bottom: 5px">
+                  <li class="title__kpi">Huella ecológica global</li>
+                  <div style="display:flex">
+                    <li class="number__kpi" id="huella"></li>
+                    <p style="font-size: 12px; margin-left: 5px;">hg/persona</p>
+                  </div>
+                </ul>
+                <ul style="margin-bottom: 5px">
+                  <li class="title__kpi">Tierra</li>
+                  <div style="display:flex">
+                    <li class="number__kpi" id="tierra"></li>
+                    <p style="font-size: 12px; margin-left: 5px;">planetas Tierra</p>
+                  </div>
+                </ul>
+              </div>
+              <hr class="linehr" />
+              <hr />
+              <!-- <h2 class="loading">Esperando respuesta de la API...</h2> -->
+              <section class="container__aside__chart">
+                <figure>
+                  <h3>Predicción al 2029</h3>
+                  <canvas id="chart7"></canvas>
+                </figure>
+              </section>
+                <section class="cols-2">
+          
+                  <figure>
+                    <h3>Top 10 paises con mas emisiones</h3>
+                      <canvas id="chart2"></canvas>
+                  </figure>
+          
+                  <figure>
+                    <h3>Emisiones por continente</h3>
+                      <canvas id="chart1"></canvas>
+                  </figure>
+          
+              </section>
+              <section class="carrousel">
+                <div class="bodycarrousel">
+                  <figure>
+                    <h3>Variación de la Temperatura</h3>
+                    <canvas id="chart3"></canvas>
+                  </figure>
+                  <figure>
+                    <h3>Huella ecológica vs Biocapacidad</h3>
+                    <canvas id="chart4"></canvas>
+                  </figure>
+                </div>
+                <ul class="points">
+                  <li class="punto activo"></li>
+                  <li class="punto"></li>
+                </ul>
+              </section>
+            </div>
+          </div>
+      </div>
+    </div>
+    
+    <div class="aside">
+      <div class="timeline">
+        <div class="linetop"></div>
+        <div id="items__timeline">
+            <button class="timeline__buttons" style="background-color: transparent; border: transparent" value="2000">2000</button>
+            <button class="timeline__buttons" style="background-color: transparent; border: transparent" value="2001">2001</button>
+            <button class="timeline__buttons" style="background-color: transparent; border: transparent" value="2002">2022</button>
+            <button class="timeline__buttons" style="background-color: transparent; border: transparent" value="2003">2003</button>
+            <button class="timeline__buttons" style="background-color: transparent; border: transparent" value="2004">2004</button>
+            <button class="timeline__buttons" style="background-color: transparent; border: transparent" value="2005">2005</button>
+            <button class="timeline__buttons" style="background-color: transparent; border: transparent" value="2006">2006</button>
+            <button class="timeline__buttons" style="background-color: transparent; border: transparent" value="2007">2007</button>
+            <button class="timeline__buttons" style="background-color: transparent; border: transparent" value="2008">2008</button>
+            <button class="timeline__buttons" style="background-color: transparent; border: transparent" value="2009">2009</button>
+            <button class="timeline__buttons" style="background-color: transparent; border: transparent" value="2010">2010</button>
+            <button class="timeline__buttons" style="background-color: transparent; border: transparent" value="2011">2011</button>
+            <button class="timeline__buttons" style="background-color: transparent; border: transparent" value="2012">2012</button>
+            <button class="timeline__buttons" style="background-color: transparent; border: transparent" value="2013">2013</button>
+            <button class="timeline__buttons" style="background-color: transparent; border: transparent" value="2014">2014</button>
+            <button class="timeline__buttons" style="background-color: transparent; border: transparent" value="2015">2015</button>
+            <button class="timeline__buttons" style="background-color: transparent; border: transparent" value="2016">2016</button>
+            <button class="timeline__buttons" style="background-color: transparent; border: transparent" value="2017">2017</button>
+            <button class="timeline__buttons" style="background-color: transparent; border: transparent" value="2018">2018</button>
+            <button class="timeline__buttons" style="background-color: transparent; border: transparent" value="2019">2019</button>
+            <button class="timeline__buttons" style="background-color: transparent; border: transparent" value="2020">2020</button>
+            <button class="timeline__buttons" style="background-color: transparent; border: transparent" value="2021">2021</button>
+            <button class="timeline__buttons" style="background-color: transparent; border: transparent" >2022</button>
+        </div>
+    </div>
+  </div>
+
+     
+    <div class="submenu">
+      <div class="card__submenu">
+        <img width="150px" src="img/alex.jpeg" alt="">
+        <h3><a href="https://alexrodriguezvillavicencio.github.io/inicio/" target="_blank">Alex Rodriguez</a></h3>
+        <p style="color: #fff; font-size:12px">Software Engineer</p>
+        <div class="item__submenu">
+          <a href="https://www.linkedin.com/in/alexrodriguezvillavicencio/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="https://github.com/AlexRodriguezVillavicencio" target="_blank"><i class="fa-brands fa-square-github"></i></a>
+          <a href="#"><i class="fa-brands fa-square-twitter"></i></a>
+        </div>
+      </div>
+      <div class="card__submenu">
+        <img width="150px" src="img/cristina.jpg" alt="">
+        <h3><a href="#">Cristina Zamorano</a></h3>
+        <p style="color: #fff; font-size:12px">Data Analyst</p>
+        <div class="item__submenu">
+          <a href="https://www.linkedin.com/in/cristinazamoranods/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="https://github.com/criszam99" target="_blank"><i class="fa-brands fa-square-github"></i></a>
+          <a href="#"><i class="fa-brands fa-square-twitter"></i></a>
+        </div>
+      </div>
+      <div class="card__submenu">
+        <img width="150px" src="img/helton.jpeg" alt="">
+        <h3><a href="#">Helton Lirion</a></h3>
+        <p style="color: #fff; font-size:12px">Data Engineer</p>
+        <div class="item__submenu">
+          <a href="https://www.linkedin.com/in/jhlirion/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="https://github.com/Jhlirion" target="_blank"><i class="fa-brands fa-square-github"></i></a>
+          <a href="#"><i class="fa-brands fa-square-twitter"></i></a>
+        </div>
+      </div>
+      <div class="card__submenu">
+        <img width="150px" src="img/agustin.jpg" alt="">
+        <h3><a href="#">Agustín Montero</a></h3>
+        <p style="color: #fff; font-size:12px">Data Engineer</p>
+        <div class="item__submenu">
+          <a href="https://www.linkedin.com/in/guillermo-agustin-montero-93910b216/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="https://github.com/agusm95"><i class="fa-brands fa-square-github" target="_blank"></i></a>
+          <a href="#"><i class="fa-brands fa-square-twitter"></i></a>
+        </div>
+      </div>
+      <div class="card__submenu">
+        <img width="150px" src="img/geronimo.jpeg" alt="">
+        <h3><a href="#">Geronimo Giggi</a></h3>
+        <p style="color: #fff; font-size:12px">Data Scientist</p>
+        <div class="item__submenu">
+          <a href="https://www.linkedin.com/in/geronimo-giggi-hippener-37a397238/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="https://github.com/ErosLibidus" target="_blank"><i class="fa-brands fa-square-github"></i></a>
+          <a href="#"><i class="fa-brands fa-square-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+    <div id="obturador">
+      <img width="100%" height="100%"  src="img/fondomovil.jpg" alt="">
+    </div>
+  </main>
+
+  <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+  integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+  crossorigin=""></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+  <script src="datajson/consumo.js"></script>
+  <script src="datajson/world.js"></script>
+  <script src="datajson/emisiones.js"></script>
+  <script src="datajson/huellamundial.js"></script>
+  <script src="datajson/gases.js"></script>
+  <script src="datajson/prediccion.js"></script>
+  <script src="datajson/temperatura.js"></script>
+  <script src="datajson/huellapais.js"></script>
+  <script src="datajson/consumo.js"></script>
+  <script src="datajson/produccion.js"></script>
+  <script src="datajson/emisionesContinente.js"></script>
+  <script src="datajson/top10.js"></script>
+  <script src="js/index.js"></script>
+  <script src="js/map.js"></script>
+</body>
+</html>
