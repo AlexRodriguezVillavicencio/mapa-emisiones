@@ -19,23 +19,15 @@ schema_view = get_schema_view(
     openapi.Info(
         title='Api Documentación Emissions Maps',
         default_version='v1.0',
-        contact=openapi.Contact(email="arodriguezv@uni.pe"),
         description = """
-        !Gracias por interesarte en usar nuestra API!
+        Acceso a información sobre:
 
-        Encontraras diferentes puntos de entrada que puedes consumirlas
-        de manera pública.Puede utilizar nuestra API para obtener acceso a información sobre:
-
-        * Que fuentes de energía consumen los países en el mundo
-        * Que fuentes de energía producen los países en el mundo
+        * Fuentes de energía consumen los países en el mundo
+        * Fuentes de energía producen los países en el mundo
         * Comportamiento de la temperatura y los principales gases del efecto invernadero a través del tiempo
 
-        Además, puede usar esta API para obtener la principales métricas mediambientales que se usan para medir
+        Además de principales métricas mediambientales que se usan para medir
         el desarrollo sostenible de un país.
-
-        Listo para comenzar?
-        
-        Adelante!
         """,
 
     ),
